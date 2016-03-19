@@ -1,0 +1,92 @@
+class クラスA
+class クラスB1
+class クラスB2
+class クラスB3
+class クラスB4
+class クラスB5
+class クラスB6
+class クラスB7
+class クラスB8
+
+クラスA -- クラスB1
+note left : 関連（association）
+
+クラスA --|> クラスB3
+note left : 汎化（generalization）
+
+クラスA ..|> クラスB4
+note left : 実現（realization）
+
+クラスA --o クラスB5
+note left : 集約（aggregation）
+
+クラスA --* クラスB6
+note left : コンポジション（composition）
+
+クラスA ..> クラスB7
+note left : 依存（dependency）
+
+クラスA --> クラスB2
+note left : 用途不明
+
+クラスA .. クラスB8
+note left : 用途不明
+
+class クラスC
+class クラスC1
+class クラスC2
+class クラスC3
+class クラスC4
+
+クラスC -up-> クラスC1
+クラスC -right-> クラスC2
+クラスC -down-> クラスC3
+クラスC -left-> クラスC4
+
+class クラスD {
+  - 属性の private
+  # 属性の protected
+  ~ 属性の package private
+  + 属性の public
+  - 操作の private()
+  # 操作の protected()
+  ~ 操作の package private()
+  + 操作の public()
+}
+
+class 車 {
+
+}
+
+class タイヤ {
+
+}
+
+class エンジン {
+
+}
+
+class ドライバー {
+
+}
+
+車 "1"-right-"1" 車検
+note right : 関連（association）
+
+車 *-up-"4" タイヤ
+note left : コンポジション（composition）
+
+車 *-up-"1" エンジン
+note right : コンポジション（composition）
+
+車 *-left-"1" ドライバ
+note right : 依存（dependency）
+
+車 o-left-"1..*" 乗員
+note right : 集約（aggregation）
+
+車 <|-down- バス
+note right : 汎化（generalization）
+
+車 <|-down- トラック
+note right : 汎化（generalization）
