@@ -1,0 +1,21 @@
+@startuml
+
+start
+
+:申請;
+
+if (金額 < 500円) then (はい)
+  :課長;
+else if ( 500円 <= 金額 < 5,000円) then  (はい)
+  :部長;
+else if ( 5,000円 <= 金額 < 1,0000円) then  (はい)
+  :本部長;
+else (いいえ)
+  :役員;
+endif
+
+:社長;
+
+end
+
+@enduml
