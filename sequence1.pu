@@ -1,0 +1,39 @@
+@startuml
+
+actor "ユーザー" as user
+
+box "アプリケーション" #e9ffe9
+  participant "Application" as app
+end box
+
+box "データベース" #e9ffe9
+  database    "<u>Database</u>" as db
+end box
+
+box "ストレージ" #e9ffe9
+  database    "<u>Storage</u>" as storage
+end box
+
+box "外部サービス" #d4e1f5
+  participant "API" as external_api
+end box
+
+user -> app : 商品詳細(GET /items/:id)
+activate app
+    app -> external_api : 商品情報取得API実行
+    activate external_api
+        app <-- external_api : JSONレスポンス
+    deactivate external_api
+
+    note right of app
+        メモを書くこともできる
+    end note
+
+    alt 商品情報が存在しない時
+        user <-- app : 404エラー画面を表示
+    end
+
+    user <-- app : 商品詳細画面を表示
+deactivate app
+
+@enduml
