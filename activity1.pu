@@ -1,0 +1,12 @@
+@startuml
+
+start
+
+:申請;
+:課長;
+:部長;
+:本部長;
+
+end
+
+@enduml
