@@ -1,0 +1,22 @@
+@startuml
+
+!define table(x) class x << (T,#FFAAAA) >>
+hide methods
+hide stereotypes
+
+table(注文){
+  - 注文id
+  + 住所
+  + 氏名
+}
+
+table(注文明細){
+  - 注文id
+  - 明細番号
+  + 商品コード
+}
+
+注文 "1"<.left."0..n" 注文明細
+
+
+@enduml
